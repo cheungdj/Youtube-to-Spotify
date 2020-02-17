@@ -12,14 +12,14 @@ import youtube_dl
 
 def grabPlaylist():
     print("Playlist url: ")
-    input()
-    url = sys.argv[1]
+    url = input()
     print("\n Directory location: ")
     location = input()
     myPlaylist = pafy.get_playlist(url)
+    print("Downloading...\n")
     for item in myPlaylist['items']:
         url = item['pafy'].getbestaudio(preftype="m4a")
         url.download(location)
-        time.sleep(2)
+        time.sleep(0.5)
 
 grabPlaylist()
